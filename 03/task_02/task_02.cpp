@@ -27,10 +27,13 @@ public:
 		}
 	}
 
+	smart_array(const smart_array& other);
+
 	smart_array& operator=(const smart_array& other) {
 		if (this != &other) {
 			delete[] arr;
 			size = other.size;      // Копирование размера
+			index = other.size;     // Копирование индекса
 
 			arr = new int[size];    // Выделение новой памяти
 			for (int i = 0; i < size; ++i) {

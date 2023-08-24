@@ -27,6 +27,10 @@ public:
 		} 
 	}
 
+	smart_array(const smart_array&) = delete;
+
+	smart_array& operator=(const smart_array&) = delete;
+
 	~smart_array() {
 		delete [] arr;
 	};
