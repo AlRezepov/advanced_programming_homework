@@ -27,25 +27,32 @@ public:
 		}
 	}
 
-	smart_array(const smart_array& other);
+	smart_array(const smart_array& other) {
+		size = other.size;
+		index = other.index;
+
+		arr = new int[size];
+		for (int i = 0; i < size; ++i) {
+			arr[i] = other.arr[i];
+		}
+	}
 
 	smart_array& operator=(const smart_array& other) {
 		if (this != &other) {
 			delete[] arr;
-			size = other.size;      // Копирование размера
-			index = other.size;     // Копирование индекса
+			size = other.size;
+			index = other.index;
 
-			arr = new int[size];    // Выделение новой памяти
+			arr = new int[size];
 			for (int i = 0; i < size; ++i) {
-				arr[i] = other.arr[i];  // Копирование элементов
+				arr[i] = other.arr[i];
 			}
 		}
 		return *this;
 	}
 
 	void print() {
-		for (int i = 0; i < size; i++)
-		{
+		for (int i = 0; i < index; i++) {
 			std::cout << arr[i] << " ";
 		}
 		std::cout << std::endl;
