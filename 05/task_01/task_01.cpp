@@ -7,10 +7,13 @@ T squaring(T a) {
 }
 
 template <typename U>
-void squaring(std::vector<U>& a) {
+std::vector<U> squaring(const std::vector<U>& a) {
+    
+    std::vector<U> b;
     for (auto& i : a) {
-        i = i * i;
+        b.push_back(i * i);
     }
+    return b;
 }
 
 int main()
@@ -31,7 +34,7 @@ int main()
     }
     std::cout << "\n";
     std::cout << "[OUT]: ";
-    squaring(A);
+    A = squaring(A);
     for (auto& i : A)
     {
         std::cout << i << ", ";
