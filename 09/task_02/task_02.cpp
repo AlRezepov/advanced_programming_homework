@@ -21,6 +21,9 @@ public:
         return *this;
     }
 
+    // Конструктор перемещения, принимающий аргумент типа big_integer
+    big_integer(big_integer&& other) : num(std::move(other.num)) {}
+
     // Конструктор перемещения
     big_integer(std::string&& other) : num(std::move(other)) {}
 

@@ -3,14 +3,7 @@
 
 template <typename T>
 void move_vectors(std::vector<T>& a, std::vector<T>& b) {
-    
-    b.clear();
-
-    for (auto&& i : a) {
-        b.push_back(std::move(i));
-    }
-
-    a.clear();
+    b = std::move(a);
 }
 
 int main() {
@@ -21,3 +14,4 @@ int main() {
 
     return 0;
 }
+
